@@ -9,8 +9,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-
-
 public class RunTheAutomationPracticeSiteWithTestNG {
 	WebDriver driver = null;
 	public static String browserName = null;
@@ -19,12 +17,12 @@ public class RunTheAutomationPracticeSiteWithTestNG {
 	public void setUpTest() {
 		String projectPath = System.getProperty("user.dir");
 		System.setProperty("webdriver.chrome.driver", projectPath + "/drivers/chromedriver/chromedriver.exe");
-		//System.setProperty("webdriver.gecko.driver", projectPath + "/drivers/geckodriver/geckodriver.exe");
-		driver = new FirefoxDriver();
-		//driver = new ChromeDriver();
-		
-		}
-	
+		// System.setProperty("webdriver.gecko.driver", projectPath +
+		// "/drivers/geckodriver/geckodriver.exe");
+		//driver = new FirefoxDriver();
+		driver = new ChromeDriver();
+
+	}
 
 	@Test
 	public void startAutomationPractice() throws InterruptedException {
