@@ -14,8 +14,8 @@ public class BrowserTest {
 
 		// System.setProperty("webdriver.gecko.driver",
 		// projectPath+"/drivers/geckodriver/geckodriver.exe");
-		
-System.setProperty("webdriver.chrome.driver", projectPath + "/drivers/chromedriver/chromedriver.exe");
+
+		System.setProperty("webdriver.chrome.driver", projectPath + "/drivers/chromedriver/chromedriver.exe");
 		// WebDriver driver = new FirefoxDriver();
 		WebDriver driver = new ChromeDriver();
 
