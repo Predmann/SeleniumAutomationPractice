@@ -5,16 +5,20 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 public class BrowserTest {
 
-    public static void main(String[] args) throws InterruptedException {
+    private static final Logger log = LogManager.getLogger(BrowserTest.class);
+
+    public static void main(String[] args) throws Exception {
 
         String projectPath = System.getProperty("user.dir");
-        System.out.println(projectPath);
-        System.setProperty("webdriver.chrome.driver", projectPath + "/drivers/chromedriver/chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
+        // System.setProperty("webdriver.chrome.driver", projectPath + "/drivers/chromedriver/chromedriver.exe");
         //WebDriver driver = new FirefoxDriver();
+        WebDriver driver = new ChromeDriver();
 
         if (driver.equals("new ChromeDriver()")) {
             System.setProperty("webdriver.chrome.driver", projectPath + "/drivers/chromedriver/chromedriver.exe");
@@ -35,17 +39,17 @@ public class BrowserTest {
         Thread.sleep(2000);
 
         // Find textBox and searchButton
-        try{
+        try {
             WebElement loginButton = driver.findElement(By.id("login-button"));
-            System.out.println("all fine!");
+            log.info("element found!");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
-       Thread.sleep(2000);
-        System.out.println("finish");
+        Thread.sleep(2000);
+        log.info("finish");
         driver.quit();
-       //driver.close();
+        //driver.close();
 
     }
 }
