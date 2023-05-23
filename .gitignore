@@ -2,3 +2,4 @@
 .idea/**
 *.iml
 /application-*.log
+.settings

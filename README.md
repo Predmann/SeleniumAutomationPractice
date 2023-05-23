@@ -6,9 +6,9 @@ TLDR: Language - Java 17, Selenium Framework 4.9.1
 
 Build tool - Maven 4.0.0
 
-Unit tests: TestNG
+Unit tests: TestNG (to be refactored)
 
-Logging: log4j 2.17.1 (will be soon adjusted)
+Logging: log4j 2.17.1
 
 Code reviews: https://github.com/Predmann
 
