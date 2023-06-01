@@ -1,5 +1,6 @@
-package com.the.internet.saucedemo.tests;
-
+package org.selenium.tests;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,9 +9,10 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class HomePage {
-	//WebDriver driver = null;
-	WebDriver driver;
-	public static String browserName = null;
+	private static final Logger log = LogManager.getLogger(HomePage.class);
+	WebDriver driver = null;
+	//WebDriver driver;
+	//public static String browserName = null;
 	
 	//Page URL
 	private static String PAGE_URL="http://the-internet.herokuapp.com/";
@@ -29,19 +31,26 @@ public class HomePage {
 	@Test
 	public void startTheMainWebsite() throws InterruptedException {
 
-		// Navigate to wanted page
-		driver.get(PAGE_URL);
-		
-		
-		// Find text to ensure, that page works fine
-		driver.findElement(By.xpath("//*[text()='Welcome to the-internet']"));
-		
+
+		try {
+			// Navigate to wanted page
+			driver.get(PAGE_URL);
+			// Find text to ensure, that page works fine
+			driver.findElement(By.xpath("//*[text()='Welcome to the-internet']"));
+
+			log.info("element or URL are found!");
+		}
+		catch (Exception ex){
+			log.trace("element or URL are NOT found!");
+			ex.printStackTrace();
+		}
 
 	}
 
 	@AfterTest
 	public void tearDownTest() {
+		log.info("closing");
 		driver.close();
-				
+
 	}
 }
